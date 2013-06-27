@@ -9,4 +9,7 @@ gem 'coffee-script'
 group :develoopment do
   gem 'shotgun'
   gem 'thin'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
 end
