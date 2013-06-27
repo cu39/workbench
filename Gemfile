@@ -12,4 +12,5 @@ group :develoopment do
   gem 'guard'
   gem 'guard-livereload'
   gem 'rack-livereload'
+  gem 'foreman'
 end
