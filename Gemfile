@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sass'
 gem 'compass'
+gem 'bootstrap-sass'
 gem 'slim'
 gem 'coffee-script'
 

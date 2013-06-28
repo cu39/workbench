@@ -4,7 +4,10 @@ html
     title= @title + ' | Site Workbench'
     link href="/css/application.css" rel="stylesheet"
   body
-
-    == yield
-
-    script src="/js/vendor/requirejs/require.js" data-main="/js/application"
+    .wrap.container-fluid
+      .main.row
+        .content.span8
+          == yield
+        .side.span2
+          == slim :_side
+      script src="/js/vendor/requirejs/require.js" data-main="/js/application"

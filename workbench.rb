@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'slim'
 require 'sass'
 require 'compass'
+require 'bootstrap-sass'
 require 'coffee-script'
 
 class Workbench < Sinatra::Base
