@@ -2,12 +2,12 @@ doctype html
 html
   head
     title= @title + ' | Site Workbench'
-    link href="/css/application.css" rel="stylesheet"
+    link href="/assets/css/application.css" rel="stylesheet"
   body
-    .wrap.container-fluid
+    .wrap.container
       .main.row
-        .content.span8
+        .content.span9
           == yield
-        .side.span2
+        .side.span3
           == slim :_side
-      script src="/js/vendor/requirejs/require.js" data-main="/js/application"
+      script src="/assets/js/application.js"

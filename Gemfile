@@ -7,6 +7,9 @@ gem 'compass'
 gem 'bootstrap-sass'
 gem 'slim'
 gem 'coffee-script'
+gem 'sprockets'
+gem 'sprockets-helpers'
+gem 'sprockets-sass'
 
 group :develoopment do
   gem 'shotgun'

@@ -2,5 +2,6 @@
 vendor/bundle
 .sass-cache
 public/js/vendor
+assets/js/vendor
 .DS_Store
 *.swp

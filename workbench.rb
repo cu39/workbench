@@ -5,34 +5,43 @@ require 'sass'
 require 'compass'
 require 'bootstrap-sass'
 require 'coffee-script'
+require 'sprockets'
+require 'sprockets-helpers'
+require 'sprockets-sass'
 
 class Workbench < Sinatra::Base
+  set :root, File.dirname(__FILE__)
+  set :sprockets, Sprockets::Environment.new(settings.root)
+  set :sprockets_prefix, '/assets'
+  set :digest_assets, false
+
   configure do
-    Compass.configuration do |config|
-      config.project_path = File.dirname(__FILE__)
-      config.sass_dir = 'views'
+    Sprockets::Helpers.configure do |config|
+      config.environment = settings.sprockets
+      config.prefix      = settings.sprockets_prefix
+      config.public_path = '/public'
     end
 
+    Sprockets::Sass.add_sass_functions = true
+
+    sprockets.append_path './assets'
+
     set :haml, { format: :html5 }
-    set :sass, Compass.sass_engine_options
-    set :scss, Compass.sass_engine_options
+    set :views, './views'
   end
 
   configure :development do
     register Sinatra::Reloader
+
+    Sprockets::Helpers.configure do |config|
+      # Debug mode automatically sets
+      # expand = true, digest = false, manifest = false
+      config.debug = true
+    end
   end
 
   get '/' do
     @title = 'Index'
     slim :index
-  end
-
-  get '/css/application.css' do
-    content_type 'text/css'
-    sass :application
-  end
-
-  get '/js/application.js' do
-    coffee :application
   end
 end
