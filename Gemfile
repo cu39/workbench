@@ -6,7 +6,7 @@ gem 'sass'
 gem 'slim'
 gem 'coffee-script'
 
-group :develoopment do
+group :development do
   gem 'shotgun'
   gem 'thin'
   gem 'guard'
