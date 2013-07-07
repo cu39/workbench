@@ -3,10 +3,12 @@ require 'sinatra/reloader'
 require 'slim'
 require 'sass'
 require 'coffee-script'
+require 'sinatra/sass_sourcemap'
 
 class Workbench < Sinatra::Base
-  configure :development do
+  configure :development, :test do
     register Sinatra::Reloader
+    helpers Sinatra::SassSourcemap
   end
 
   get '/' do
@@ -15,8 +17,13 @@ class Workbench < Sinatra::Base
   end
 
   get '/css/application.css' do
-    content_type 'text/css'
-    sass :application
+    sass_map_header :application
+    sass_with_map :application
+  end
+
+  get '/css/application.sassmap' do
+    halt 404, "Not Found\n" if settings.production?
+    sass_map :application
   end
 
   get '/js/application.js' do

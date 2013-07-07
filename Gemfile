@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'sass'
+gem 'sass', '3.3.0.alpha.136'
 gem 'slim'
 gem 'coffee-script'
 
