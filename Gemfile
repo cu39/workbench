@@ -11,7 +11,7 @@ gem 'sprockets'
 gem 'sprockets-helpers'
 gem 'sprockets-sass'
 
-group :develoopment do
+group :development do
   gem 'shotgun'
   gem 'thin'
   gem 'guard'
